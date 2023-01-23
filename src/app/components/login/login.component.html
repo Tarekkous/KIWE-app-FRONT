@@ -1,1 +1,47 @@
-<p>login works!</p>
+<section>
+  <div class="login-form">
+    <h1>Bienvenue !</h1>
+    <h2>Connectez-vous</h2>
+
+    <form [formGroup]="loginFormUser" (ngSubmit)="onSubmit()">
+      <!-- Input email -->
+      <mat-form-field appearance="fill">
+        <mat-label>Adresse e-mail</mat-label>
+        <input
+          matInput
+          type="email"
+          formControlName="email"
+          placeholder="exemple@exemple.com"
+        />
+        <mat-icon matSuffix>email</mat-icon>
+      </mat-form-field>
+
+      <!-- Input password -->
+      <mat-form-field appearance="fill">
+        <mat-label>Mot de Passe</mat-label>
+        <input
+        matInput
+        type="password"
+          formControlName="password"
+          placeholder="Votre mot de passe"
+        />
+        <mat-icon matSuffix>password</mat-icon>
+      </mat-form-field>
+
+      <!-- Bouton submit -->
+      <button
+        mat-raised-button
+        type="submit"
+        color="primary"
+        [disabled]="loginFormUser.invalid"
+      >
+        Valider
+      </button>
+      <!-- Renvoyer vers overview après validation -->
+    </form>
+
+    <p>Pas encore de compte?</p>
+    <p>Cliquez <a (click)="onRegister()">ici</a> pour vous inscrire</p>
+    <!-- Renvoyer vers register -->
+  </div>
+</section>

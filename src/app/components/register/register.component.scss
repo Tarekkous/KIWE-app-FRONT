@@ -1,0 +1,78 @@
+* ::before ::after {
+  padding: 0;
+  margin: 0;
+  width: 100vw;
+  height: 100%;
+
+}
+// .image{
+//   background-image: url(/kiwe-client/src/assets/maquette_KiWe-removebg-preview.png);
+//   width: 100%;
+//   height: 100%;
+//   position: absolute;
+//   top: 50%;
+// }
+img{
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100px;
+  height: 100px;
+}
+h1{
+  font-size: 40px;
+  text-align: center;
+  padding: 10px;
+}
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url("https://p4.wallpaperbetter.com/wallpaper/1002/220/951/abstract-background-wallpaper-preview.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 120vh;
+  width: 98.7vw;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  margin: 100px;
+  background-color: rgba(255, 255, 255, 0.868);
+  padding: 30px;
+  border-radius: 10px;
+
+}
+
+.sendButton {
+  width: 30%;
+  margin: auto;
+}
+.loginBtn{
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  p {
+    font-size: 12px;
+    color: #333;
+  }a {
+    color: blue;
+    letter-spacing: 2px;
+    width: 150px;
+    font-size: 12px;
+    cursor: pointer;
+  }
+  margin-left: 80%;
+}
+.addSkills {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.inputSkill {
+  width: 100%;
+}

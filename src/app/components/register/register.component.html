@@ -1,1 +1,76 @@
-<p>register works!</p>
+<section>
+
+  <form [formGroup]="userRegister" (ngSubmit)="onSubmit()">
+    <h1>Enregistrez-vous !</h1>
+
+
+    <!-- Input firstName -->
+    <mat-form-field appearance="fill">
+      <mat-label>first Name</mat-label>
+      <input
+        matInput
+        formControlName="firstName"
+        maxlength="20"
+        placeholder="first Name"
+        minlength="2"
+      />
+      <mat-icon matSuffix>home</mat-icon>
+    </mat-form-field>
+
+    <!-- Input lastName -->
+    <mat-form-field appearance="fill">
+      <mat-label>last Name</mat-label>
+      <input
+        matInput
+        formControlName="lastName"
+        placeholder="last-Name"
+        minlength="2"
+      />
+      <mat-icon matSuffix>home</mat-icon>
+    </mat-form-field>
+
+   <!-- Input email -->
+   <mat-form-field appearance="fill">
+    <mat-label>e-mail</mat-label>
+    <input
+      matInput
+      formControlName="email"
+      placeholder="Votre mail"
+    />
+    <mat-icon matSuffix>email</mat-icon>
+  </mat-form-field>
+
+    <!-- Input password -->
+    <mat-form-field appearance="fill">
+      <mat-label>Mot de Passe</mat-label>
+      <input
+        matInput
+        formControlName="password"
+        placeholder="Votre mot de passe"
+      />
+      <mat-icon matSuffix>password</mat-icon>
+    </mat-form-field>
+
+    <!-- Input confirm password -->
+    <mat-form-field appearance="fill">
+      <mat-label>Confirmation de mot de passe</mat-label>
+      <input
+        matInput
+        formControlName="confirmPassword"
+        placeholder="Votre mot de passe à confirmer"
+      />
+      <mat-icon matSuffix>password</mat-icon>
+    </mat-form-field>
+
+    <button mat-raised-button class="sendButton" type="submit" color="primary">
+      Valider
+    </button>
+    <div class="loginBtn">
+      <p>déja inscrit ?</p>
+      <a   (click)="clickToLogin()" type="submit" color="primary">
+        Se connecter
+      </a>
+    </div>
+
+  </form>
+</section>
