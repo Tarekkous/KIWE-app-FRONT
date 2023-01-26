@@ -23,13 +23,9 @@ export class RegisterComponent {
 
   ngOnInit(): void {
     this.userRegister = this._fb.group({
-      username: ['', Validators.required],
       firstName: [this.user.user_firstname, Validators.required],
       lastName: [this.user.user_lastname, Validators.required],
       email: [this.user.user_mail, [Validators.email, Validators.required]],
-      phoneNumber: ['', Validators.required],
-      street: ['', Validators.required],
-      country: ['', Validators.required],
       password: [
         this.user.user_mdp,
         [Validators.required, Validators.minLength(8)],

@@ -29,6 +29,6 @@ getToken(){
   return token
  }
  return null
-}
+};
 
-}
+};

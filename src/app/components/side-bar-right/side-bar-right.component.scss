@@ -1,0 +1,128 @@
+// section {
+//   width: 20%;
+//   height: 100vh;
+//   background-color: royalblue;
+//   position: absolute;
+//   top: 0;
+//   right: 0;
+// }
+
+mat-sidenav-container{
+  height: 100vh;
+}
+mat-sidenav, mat-sidenav-content{
+  padding: 16px;
+}
+mat-sidenav {
+  background-color: #F5F5F5;
+  width: 200px;
+}
+
+
+.menu-item {
+  width: 30px;
+  height: 5px;
+  background-color: white;
+  margin: 3px;
+  cursor: pointer;
+
+}
+.menu {
+  position: absolute;
+  top:10;
+  right: 2%;
+  cursor: pointer;
+
+}
+.close {
+  position: absolute;
+  top: 2;
+  right: 10%;
+  font-weight: 800;
+  font-size: 25px;
+  padding: 3px;
+  cursor: pointer;
+  &:hover {
+    border: 1px solid red;
+    border-radius: 50%;
+    color: red;
+    padding: 5px;
+  }
+}
+.contenu  {
+  font-size: 15px;
+  letter-spacing: 1px;
+  font-weight: 600;
+  margin: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  .fa-user-circle{
+    position: absolute;
+    top: 2%;
+    left: 20%;
+    font-size: 40px;
+  }
+  .fa-cog{
+    font-size: 22px;
+  }
+  .fa-list{
+    font-size: 23px;
+  }
+  .home{
+    font-size: 16px;
+    margin-right: 100%;
+  }
+  .disconnect{
+    position: absolute;
+    bottom: 20%;
+  }
+  .parametres,.historique,.home{
+    display: flex;
+    justify-content: left;
+    align-items: flex-end;
+    margin: 15px;
+    &:hover {
+      color: #0956A3;
+     }
+      a {
+        margin-left: 5px;
+        text-decoration: none;
+        color: #000;
+        &:hover{
+          color: #0956A3;
+        }
+      }
+  }
+  h2{
+    cursor: auto;
+    position: absolute;
+    top: 0;
+    left: 50%;
+  }
+
+  .oneItem {
+    padding-top: 30px;
+    &:hover {
+      color: #0956A3;
+     }
+  }
+}
+
+//!à remplacer par image LOGO
+// .go_qr{
+//   position: absolute;
+//   top:50%;
+//   left: 40%;
+//   text-decoration: none;
+//   font-size: 40px;
+//   filter: drop-shadow(8px 8px 8px #3333);
+//   color: royalblue;
+//   border: none;
+//   border-radius: 20px;
+//   padding: 10px;
+//   cursor: pointer;
+
+// }

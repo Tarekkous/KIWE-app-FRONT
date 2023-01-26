@@ -13,4 +13,7 @@ export class EntrepriseService {
 getEntreprise(entrepriseId:number):Observable<any>{
   return this._http.get(this.apiEntreprise + '/' + entrepriseId);
 };
+updateEntreprise(id:any,email:any):Observable<any>{
+  return this._http.put(`${this.apiEntreprise}/${id}`, email)
+};
 }

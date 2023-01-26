@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgxQrcodeElementTypes, NgxQrcodeErrorCorrectionLevels } from '@techiediaries/ngx-qrcode';
 import { EntrepriseService } from 'src/app/services/entreprise.service';
+import { ParametresComponent } from '../parametres/parametres.component';
 
 @Component({
   selector: 'app-qr-code',
@@ -21,21 +23,38 @@ export class QrCodeComponent {
   margin = 10;
   scale = 5;
 
-  constructor(private _entrepriseService: EntrepriseService) {}
+  constructor(private _entrepriseService: EntrepriseService, private _route:Router) {
+    // this.value = this._route.navigate(['overview']);
+  }
 
   ngOnInit(): void {
   this.getEntreprise()
+
+// this.updateEntreprise()
+
   }
 
   //!get entreprise
   getEntreprise() {
-    this._entrepriseService.getEntreprise(1).subscribe((data: any) => {
+    this._entrepriseService.getEntreprise(3).subscribe((data: any) => {
+      console.log(data);
       this.nbClientsEnAttente = data[0].nombre_clients_en_attente;
-      this.tempsAttente = data[0].temps_attente
+      console.log('Nombre client en attente',this.nbClientsEnAttente);
+      this.tempsAttente = Math.round((this.nbClientsEnAttente * 5)/60)
+      console.log('temps dattente en heures',this.tempsAttente);
       //valeur QR :
-      this.value = `Nombre de clients en attente : ${this.nbClientsEnAttente}, temps d'attente estimé : ${this.tempsAttente}`;
-      console.log(this.nbClientsEnAttente);
+      this.value = `${this.tempsAttente}H`
+      // this.value = `Nombre de clients en attente : ${this.nbClientsEnAttente}, temps d'attente estimé : ${this.tempsAttente}`;
     });
-  }
 
+  }
+  updateEntreprise(){
+        // récupérer le mail au moment du login
+        const email = JSON.parse(localStorage.getItem('profilCords') as any);
+        console.log(email.user_mail);
+    // modifier le nombre du client en attente de l'entreprise où le user_mail = email
+      this._entrepriseService.updateEntreprise(2,email).subscribe((data:any)=>{
+        console.log(data);
+      })
+  }
 }

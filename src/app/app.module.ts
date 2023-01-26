@@ -26,8 +26,10 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatDialogModule} from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
-
-
+import { SideBarRightComponent } from './components/side-bar-right/side-bar-right.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { HistoriqueCommandesComponent } from './components/historique-commandes/historique-commandes.component';
+import { ParametresComponent } from './components/parametres/parametres.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +39,10 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     QrCodeComponent,
     RegisterComponent,
     TopBarComponent,
-    GeolocationComponent
+    GeolocationComponent,
+    SideBarRightComponent,
+    HistoriqueCommandesComponent,
+    ParametresComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +62,8 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     MatSnackBarModule,
     MatDialogModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatToolbarModule
   ],
   providers: [
     {

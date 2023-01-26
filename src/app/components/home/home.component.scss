@@ -1,0 +1,31 @@
+.home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px;
+  margin: auto;
+  border: 2px solid #0956A3;
+  width: 15%;
+  border-radius: 15px;
+  a{
+    text-decoration: none;
+  }
+  h2{
+    margin: 20px;
+    text-align: center;
+    color:#0956A3 ;
+        &:hover{
+          color: #FB756A;
+        }
+
+  }
+  img{
+    width: 150px;
+    height: 150px;
+  }
+}
+.geolocation{
+  text-align: center;
+  margin-top: 5%;
+}

@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./overview.component.scss']
 })
 export class OverviewComponent {
+  showFiller = false;
 
 }

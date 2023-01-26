@@ -39,11 +39,12 @@ export class LoginComponent {
       console.log(email , password);
       var dataLogin = { user_mail: email, user_mdp: password };
       this._userService.postLogin(dataLogin).subscribe((response: any) => {
-        console.log(response);
+        console.log(response.loginUser);
         this.token = response.accessToken
         localStorage.setItem('Token',this.token)
+        localStorage.setItem('profilCords',JSON.stringify(response.loginUser))
       });
-      this._router.navigate(['overview']);
+      this._router.navigate(['overview/home']);
     } catch (err) {
       this._snackBar.open('wrong mail adress!','Retry',{verticalPosition:'top'});
     }
