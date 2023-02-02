@@ -15,11 +15,11 @@
 <mat-sidenav-container>
   <mat-sidenav #right mode="side" [(opened)]="opened" >
     <div class="close" (click)="right.toggle()"></div>
-    <div class="contenu" *ngIf="profilCords">
+    <div class="contenu" >
       <i class="fas fa-user-circle"></i>
       <h2>
-        {{ profilCords.user_firstname }} <br />
-        {{ profilCords.user_lastname }}
+        <!-- {{ profilCords.user_firstname }} <br /> -->
+        <!-- {{ profilCords.user_lastname }} -->
       </h2>
       <div class="home">
         <i class="fas fa-home"></i>

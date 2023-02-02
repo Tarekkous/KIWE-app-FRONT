@@ -14,7 +14,6 @@ export class LoginComponent {
   user = new User
   token!:string;
   loginFormUser!: FormGroup;
-
   constructor(
     private _fb: FormBuilder,
     private _userService: UserService,
@@ -31,6 +30,7 @@ export class LoginComponent {
     // this._userService.getAllUsers().subscribe((data: any) => {
     //   console.log(data);
     // });
+
   }
   onSubmit(): void {
     try {

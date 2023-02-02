@@ -1,12 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-
+  profilCords= new Subject<any>()
+  myToken =  new Subject<any>()
   userApi:string='http://localhost:3000/user'
   loginApi:string='http://localhost:3000/login'
   constructor(private _http:HttpClient) { }
@@ -23,6 +24,7 @@ postLogin(user:any):Observable<any>{
 postRegister(user:any):Observable<any>{
   return this._http.post(this.userApi,user)
 }
+//!1ere méthode pour récupérer le token (localstorage)
 getToken(){
  const token = localStorage.getItem('Token')
  if (token) {
@@ -30,5 +32,19 @@ getToken(){
  }
  return null
 };
+//!1ere méthode pour récupérer le token (Subject)
 
+getMyToken():Observable<any>{
+  const tkn = localStorage.getItem('Token')
+  this.myToken.next(tkn)
+  return this.myToken.asObservable()
+}
+//!méthode pour récupérer les coordonnées de user quand il se connecte
+// et au lieu de les récupérer du local storage direct , on les envoie
+// avec le subject afin de ne pas avoir des problemes pour la version mobile
+getProfilCords():Observable<any>{
+  const profilCords = localStorage.getItem('profilCords')
+  this.profilCords.next(profilCords)
+  return this.profilCords.asObservable()
+}
 };
