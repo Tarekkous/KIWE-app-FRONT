@@ -18,7 +18,7 @@ const routes: Routes = [
   {path: 'overview',component: OverviewComponent, canActivate: [AuthGuard],
     children: [
       { path: 'topbar', component: TopBarComponent },
-      { path: 'home', component: HomeComponent ,canActivate: [AuthGuard],
+      { path: 'home', component: HomeComponent ,canActivate:[AuthGuard],
          children : [
            { path: 'geolocation', component: GeolocationComponent}
 
