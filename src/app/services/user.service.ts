@@ -47,4 +47,8 @@ getProfilCords():Observable<any>{
   this.profilCords.next(profilCords)
   return this.profilCords.asObservable()
 }
+// on associe le user à l'entreprise consulté
+associateUser(nom_entreprise:any,user_mail:any):Observable<any>{
+  return this._http.put(this.userApi,{ nom_entreprise, user_mail })
+};
 };

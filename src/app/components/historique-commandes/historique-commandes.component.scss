@@ -1,0 +1,37 @@
+.logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 70px;
+  margin: 10px;
+}
+.container {
+  text-align: center;
+  h1{
+    color:#FD746C ;
+    font-size: 40px;
+  }
+    .NbClientsEnAttente{
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin: 10px;
+        h2{
+          color: #12569F;
+          font-size: 32px;
+        }
+    }
+    .posAndTempsAttente{
+      margin-top: 10%;
+          p{
+            color: #12569F;
+          }
+    };
+    button {
+      text-decoration: none;
+      margin: 10px;
+      border: 1px solid #12569F;
+    }
+
+}
