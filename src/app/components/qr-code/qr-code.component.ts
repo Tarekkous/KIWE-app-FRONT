@@ -30,7 +30,7 @@ export class QrCodeComponent {
   ngOnInit(): void {
   // this.getEntreprise()
       //valeur QR :
-      this.value = `http://192.168.1.128:4200/overview/qrcode`
+      this.value = `http://192.168.1.2:4200/overview/historique`
       // this.value = `Nombre de clients en attente : ${this.nbClientsEnAttente}, temps d'attente estimé : ${this.tempsAttente}`;
 
 // this.updateEntreprise()

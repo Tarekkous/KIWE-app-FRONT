@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { EntrepriseService } from 'src/app/services/entreprise.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -15,7 +16,8 @@ cords!:any
 
   constructor(
     private _entrepriseService: EntrepriseService,
-    private _userService: UserService
+    private _userService: UserService,
+    private _route:Router
   ) {}
 
   ngOnInit(): void {
@@ -43,6 +45,7 @@ cords!:any
     })
   };
 
+  //Methode on WAIT  :
   onValidate(): void {
     //!on ajoute un client + 2 min de temps d'attente
     const userMail = {"user_mail" : this.cords.user_mail}
@@ -56,16 +59,31 @@ cords!:any
     this._userService.addPos(userMail).subscribe((response:any)=>{
       console.log(response);
     });
-    //afin de ne pas rafraichir la page avec"window.location" , faire appel à la méthode get :
-    // this._entrepriseService.getOneEntreprise(3).subscribe((data: any) => {
-    //   this.societyData = data[0];
-    // });
 
     //rafraichir la page afin de visualiser les nouvelles données*****
     window.location.href = "/overview/historique"
 
     };
     console.log(this.isRequestSent);
-  }
+  };
+
+  //Methode on EXIT  :
+
+onExit(){
+  const userMail = {"user_mail" : this.cords.user_mail}
+
+  this._userService.dissociateUser(userMail).subscribe((response:any)=>{
+    console.log(response);
+  });
+this._route.navigate(['overview/home'])
+
+
+}
+
+
+
+
+
+
 }
 

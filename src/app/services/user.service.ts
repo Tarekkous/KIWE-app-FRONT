@@ -60,4 +60,8 @@ addPos(userMail:any):Observable<any>{
   return this._http.put(`${this.commonApi}addPos`, userMail)
 };
 
+// !on dissocie l'utilisateur de l'entreprise
+dissociateUser(userMail:any):Observable<any>{
+  return this._http.put(`${this.commonApi}userDissociate`, userMail)
+}
 };

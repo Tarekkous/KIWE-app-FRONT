@@ -17,9 +17,9 @@
     <div class="close" (click)="right.toggle()"></div>
     <div class="contenu" >
       <i class="fas fa-user-circle"></i>
-      <h2>
-        <!-- {{ profilCords.user_firstname }} <br /> -->
-        <!-- {{ profilCords.user_lastname }} -->
+      <h2 *ngIf="cords">
+        {{ cords.user_firstname }} <br />
+        {{ cords.user_lastname }}
       </h2>
       <div class="home">
         <i class="fas fa-home"></i>
@@ -28,7 +28,7 @@
       <div class="parametres">
         <i class="fas fa-cog"></i>
         <!-- !a changer provisoire -->
-        <a  routerLink="qrcode" class="oneItem">Paramètres</a>
+        <a  routerLink="parametres" class="oneItem">Paramètres</a>
       </div>
       <div class="historique">
         <i class="fas fa-list"></i>

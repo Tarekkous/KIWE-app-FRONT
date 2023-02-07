@@ -1,5 +1,5 @@
 <img class="logo" src="/assets/Logo.png" alt="" />
-<section class="content">
+<section *ngIf="!showGeolocation && !showQrCode" class="content">
   <div class="home">
     <a routerLink="qrcode">
       <img src="/assets/Kiwe.png" alt="" />
@@ -12,3 +12,4 @@
     </a>
   </div>
 </section>
+<router-outlet></router-outlet>

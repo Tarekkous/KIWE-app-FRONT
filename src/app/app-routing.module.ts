@@ -20,10 +20,9 @@ const routes: Routes = [
       { path: 'topbar', component: TopBarComponent },
       { path: 'home', component: HomeComponent ,canActivate:[AuthGuard],
          children : [
-           { path: 'geolocation', component: GeolocationComponent}
-
+           { path: 'geolocation', component: GeolocationComponent},
+           { path: 'qrcode', component: QrCodeComponent,canActivate: [AuthGuard]},
                       ]},
-      { path: 'qrcode', component: QrCodeComponent,canActivate: [AuthGuard]},
       { path: 'historique', component: HistoriqueCommandesComponent,canActivate: [AuthGuard]},
       { path: 'parametres', component: ParametresComponent,canActivate: [AuthGuard]},
 
