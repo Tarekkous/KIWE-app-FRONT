@@ -28,11 +28,11 @@ export class RegisterComponent {
       email: [this.user.user_mail, [Validators.email, Validators.required]],
       password: [
         this.user.user_mdp,
-        [Validators.required, Validators.minLength(8)],
+        [Validators.required, Validators.minLength(7)],
       ],
       confirmPassword: [
         this.user.user_mdp,
-        [Validators.required, Validators.minLength(8)],
+        [Validators.required, Validators.minLength(7)],
       ],
     });
   }

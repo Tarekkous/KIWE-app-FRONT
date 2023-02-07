@@ -7,8 +7,8 @@
     <p>Numéro de la file d'attente : </p>
     <h2>{{societyData.nombre_clients_en_attente}}</h2>
   </div>
-  <div class="posAndTempsAttente">
-    <h2>position_number</h2>
+  <div class="posAndTempsAttente" *ngIf="cords">
+    <h2>{{cords.position}}</h2>
     <p>Estimation de temps d'attente : {{societyData.temps_attente}} min</p>
   </div>
 <div class="boutons">

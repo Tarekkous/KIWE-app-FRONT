@@ -8,6 +8,7 @@ import { Observable, Subject } from 'rxjs';
 export class UserService {
   profilCords= new Subject<any>()
   myToken =  new Subject<any>()
+  commonApi:string='http://localhost:3000/'
   userApi:string='http://localhost:3000/user'
   loginApi:string='http://localhost:3000/login'
   constructor(private _http:HttpClient) { }
@@ -47,8 +48,16 @@ getProfilCords():Observable<any>{
   this.profilCords.next(profilCords)
   return this.profilCords.asObservable()
 }
-// on associe le user à l'entreprise consulté
+
+
+//! on associe le user à l'entreprise consulté
 associateUser(nom_entreprise:any,user_mail:any):Observable<any>{
   return this._http.put(this.userApi,{ nom_entreprise, user_mail })
 };
+
+//!on ajoute une position au user
+addPos(userMail:any):Observable<any>{
+  return this._http.put(`${this.commonApi}addPos`, userMail)
+};
+
 };
