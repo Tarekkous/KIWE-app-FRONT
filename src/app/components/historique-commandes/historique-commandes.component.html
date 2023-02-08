@@ -7,12 +7,12 @@
     <p>Numéro de la file d'attente : </p>
     <h2>{{societyData.nombre_clients_en_attente}}</h2>
   </div>
-  <div class="posAndTempsAttente" *ngIf="cords">
-    <h2>{{cords.position}}</h2>
+  <div class="posAndTempsAttente" *ngIf="positionUser">
+    <h2>{{positionUser.position}}</h2>
     <p>Estimation de temps d'attente : {{societyData.temps_attente}} min</p>
   </div>
-<div class="boutons">
-  <button (click)="onValidate()" class="btn_validate" mat-button color="primary">Wait</button>
+<div class="boutons" *ngIf="cords">
+  <button (click)="onValidate(cords)" class="btn_validate" mat-button color="primary">Wait</button>
   <button (click)="onExit()" class="btn_exit" mat-button color="warn">Exit</button>
 </div>
 

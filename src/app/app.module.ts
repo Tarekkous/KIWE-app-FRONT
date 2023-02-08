@@ -29,7 +29,8 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { SideBarRightComponent } from './components/side-bar-right/side-bar-right.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { HistoriqueCommandesComponent } from './components/historique-commandes/historique-commandes.component';
-import { ParametresComponent } from './components/parametres/parametres.component'
+import { ParametresComponent } from './components/parametres/parametres.component';
+import { ModalPositionComponent } from './modal/position/modal-position/modal-position.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +43,8 @@ import { ParametresComponent } from './components/parametres/parametres.componen
     GeolocationComponent,
     SideBarRightComponent,
     HistoriqueCommandesComponent,
-    ParametresComponent
+    ParametresComponent,
+    ModalPositionComponent
   ],
   imports: [
     BrowserModule,
