@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { EntrepriseComponent } from './components/entreprise/entreprise.component';
 import { GeolocationComponent } from './components/geolocation/geolocation.component';
 import { HistoriqueCommandesComponent } from './components/historique-commandes/historique-commandes.component';
 import { HomeComponent } from './components/home/home.component';
@@ -25,6 +26,7 @@ const routes: Routes = [
                       ]},
       { path: 'historique', component: HistoriqueCommandesComponent,canActivate: [AuthGuard]},
       { path: 'parametres', component: ParametresComponent,canActivate: [AuthGuard]},
+      { path: 'entreprise', component: EntrepriseComponent,canActivate: [AuthGuard]},
 
     ],
   },

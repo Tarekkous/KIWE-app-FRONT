@@ -30,7 +30,8 @@ import { SideBarRightComponent } from './components/side-bar-right/side-bar-righ
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { HistoriqueCommandesComponent } from './components/historique-commandes/historique-commandes.component';
 import { ParametresComponent } from './components/parametres/parametres.component';
-import { ModalPositionComponent } from './modal/position/modal-position/modal-position.component'
+import { ModalPositionComponent } from './modal/position/modal-position/modal-position.component';
+import { EntrepriseComponent } from './components/entreprise/entreprise.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +45,8 @@ import { ModalPositionComponent } from './modal/position/modal-position/modal-po
     SideBarRightComponent,
     HistoriqueCommandesComponent,
     ParametresComponent,
-    ModalPositionComponent
+    ModalPositionComponent,
+    EntrepriseComponent
   ],
   imports: [
     BrowserModule,

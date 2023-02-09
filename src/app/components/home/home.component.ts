@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { GeolocationComponent } from '../geolocation/geolocation.component';
@@ -8,8 +8,7 @@ import { GeolocationComponent } from '../geolocation/geolocation.component';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent {
-
+export class HomeComponent implements OnInit {
 showQrCode = false;
 showGeolocation = false;
 tkn!:any
@@ -38,6 +37,8 @@ this._userService.getMyToken().subscribe((data:any)=>{
   this.tkn = data
 });
   };
+  goSociety():void{
+    this.router.navigate(['overview/entreprise'])
+  }
 
-
-}
+};

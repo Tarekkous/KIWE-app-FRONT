@@ -1,4 +1,4 @@
-import { Component , Inject } from '@angular/core';
+import { Component , Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { EntrepriseService } from 'src/app/services/entreprise.service';
 import { UserService } from 'src/app/services/user.service';
@@ -8,7 +8,7 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './modal-position.component.html',
   styleUrls: ['./modal-position.component.scss']
 })
-export class ModalPositionComponent {
+export class ModalPositionComponent implements OnInit {
 
   positionUser!:any
   private isRequestSent = false;

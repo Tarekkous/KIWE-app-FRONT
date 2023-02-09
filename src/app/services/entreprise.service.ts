@@ -7,7 +7,7 @@ import { User } from '../models/user.model';
   providedIn: 'root'
 })
 export class EntrepriseService {
-
+  commonApi:string= 'http://localhost:3000/'
   apiEntreprise:string = 'http://localhost:3000/entreprise'
   apiAdd:string = 'http://localhost:3000/entrepriseAddClient'
 
@@ -26,4 +26,10 @@ addClient(userMail:any):Observable<any>{
   return this._http.put(this.apiAdd,userMail)
 };
 
+// On enlève 1 au nb clients - 2min d'attente
+removeClient(userMail:any):Observable<any>{
+  return this._http.put(`${this.commonApi}entrepriseReload`,userMail)
 }
+
+
+};

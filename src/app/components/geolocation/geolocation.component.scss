@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 20px;
+    h1 {
+      font-size: 32px;
+      font-weight: 700;
+      color: #12569F;
+    }
+  #map {
+    height: 60vh;
+    width: 50vw;
+    margin: auto;
+    margin-top: 40px;
+  }
+  .goHome {
+    margin-top: 30px;
+        img{
+          width: 100px;
+          height: 100px;
+        }
+        button {
+          border: none;
+          background-color: transparent;
+        }
+        &:hover {
+          cursor: pointer;
+        }
+  }
+
+}
