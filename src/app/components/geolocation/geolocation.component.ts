@@ -61,4 +61,5 @@ export class GeolocationComponent {
   goBack(){
     this._router.navigate(['/overview/home']);
   };
-}
+
+};

@@ -31,7 +31,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { HistoriqueCommandesComponent } from './components/historique-commandes/historique-commandes.component';
 import { ParametresComponent } from './components/parametres/parametres.component';
 import { ModalPositionComponent } from './modal/position/modal-position/modal-position.component';
-import { EntrepriseComponent } from './components/entreprise/entreprise.component'
+import { EntrepriseComponent } from './components/entreprise/entreprise.component';
+import { DeleteComponent } from './modal/profilUser/delete/delete.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +47,8 @@ import { EntrepriseComponent } from './components/entreprise/entreprise.componen
     HistoriqueCommandesComponent,
     ParametresComponent,
     ModalPositionComponent,
-    EntrepriseComponent
+    EntrepriseComponent,
+    DeleteComponent
   ],
   imports: [
     BrowserModule,

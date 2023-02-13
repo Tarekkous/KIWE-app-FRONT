@@ -2,18 +2,23 @@
 <div style="text-align: center" class="container">
   <h1>Consulter l'entreprise</h1>
 </div>
+<section class="container">
+  <ngx-qrcode
+    class="codeQR"
+    [elementType]="elementType"
+    [value]="value"
+    [margin]="margin"
+    [scale]="scale"
+    cssClass="aclass"
+  >
+  </ngx-qrcode>
+  <div class="alternative">
+    <p>OU <button (click)="goSociety()">Cliquez ici</button></p>
+  </div>
+</section>
 
-<ngx-qrcode
-  class="codeQR"
-  [elementType]="elementType"
-  [value]="value"
-  [margin]="margin"
-  [scale]="scale"
-  cssClass="aclass"
->
-</ngx-qrcode>
-  <!-- <div class="goHome">
-    <a (click)="goBack()">
-      <img src="/assets/home-kiwe.png" alt="" />
-    </a>
-  </div> -->
+<div class="goHome">
+  <a (click)="goBack()">
+    <img src="/assets/home-kiwe.png" alt="" />
+  </a>
+</div>

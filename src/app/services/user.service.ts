@@ -19,6 +19,12 @@ getOneUser(id:any):Observable<any>{
 getAllUsers():Observable<any>{
   return this._http.get(this.userApi)
 }
+updateUser(id:any,user:any):Observable<any>{
+  return this._http.put(`${this.userApi}/${id}`,user)
+}
+deleteUser(id:any):Observable<any>{
+  return this._http.delete(`${this.userApi}/${id}`)
+}
 postLogin(user:any):Observable<any>{
   return this._http.post(this.loginApi,user)
 }

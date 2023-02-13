@@ -34,8 +34,10 @@ export class QrCodeComponent implements OnInit {
 
   }
 
-  // goBack(){
-  //   this._route.navigate(['/overview/home']);
-  // };
-
+  goBack(){
+    this._route.navigate(['/overview/home']);
+  };
+  goSociety():void{
+    this._route.navigate(['overview/entreprise'])
+  }
 }
