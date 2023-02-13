@@ -2022,7 +2022,15 @@ p {
   display: flex;
   justify-content: space-between;
   margin-top: 5%;
+  button {
+  border: 1px solid #12569F;
+
+  }
   .modify{
-    padding: 5px;
+    width: 15%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
   }
 }
