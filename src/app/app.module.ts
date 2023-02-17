@@ -35,6 +35,7 @@ import { EntrepriseComponent } from './components/entreprise/entreprise.componen
 import { DeleteComponent } from './modal/profilUser/delete/delete.component';
 import { LoginAdminComponent } from './components/login-admin/login-admin.component';
 import { AdminComponent } from './components/admin/admin.component'
+import {MatSelectModule} from '@angular/material/select';
 @NgModule({
   declarations: [
     AppComponent,
@@ -73,7 +74,8 @@ import { AdminComponent } from './components/admin/admin.component'
     MatDialogModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatSelectModule
   ],
   providers: [
     {

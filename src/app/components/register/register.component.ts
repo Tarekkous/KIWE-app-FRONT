@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user.model';
@@ -34,6 +34,7 @@ export class RegisterComponent implements OnInit {
         this.user.user_mdp,
         [Validators.required, Validators.minLength(7)],
       ],
+      statut: ['',Validators.required]
     });
   }
   onSubmit() {
@@ -41,11 +42,13 @@ export class RegisterComponent implements OnInit {
     const lastname = this.userRegister.get('lastName')?.value;
     const email = this.userRegister.get('email')?.value;
     const password = this.userRegister.get('password')?.value;
+    const statut = this.userRegister.get('statut')?.value;
     const registerInfo = {
       user_firstname: firstname,
       user_lastname: lastname,
       user_mail: email,
       user_mdp: password,
+      statut: statut
     };
     this._userService.postRegister(registerInfo).subscribe((response: any) => {
       try {

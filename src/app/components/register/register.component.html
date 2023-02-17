@@ -1,9 +1,16 @@
 <section>
-  <img src="/assets/Logo.png" alt="">
+  <img src="/assets/Logo.png" alt="" />
 
   <form [formGroup]="userRegister" (ngSubmit)="onSubmit()">
     <h1>Enregistrez-vous !</h1>
-
+    <!-- Input select statut -->
+    <mat-form-field appearance="fill">
+      <mat-label>Statut</mat-label>
+      <mat-select formControlName="statut">
+        <mat-option value="client">Client</mat-option>
+        <mat-option value="commerçant">Commerçant</mat-option>
+      </mat-select>
+    </mat-form-field>
 
     <!-- Input firstName -->
     <mat-form-field appearance="fill">
@@ -30,16 +37,12 @@
       <mat-icon matSuffix>home</mat-icon>
     </mat-form-field>
 
-   <!-- Input email -->
-   <mat-form-field appearance="fill">
-    <mat-label>e-mail</mat-label>
-    <input
-      matInput
-      formControlName="email"
-      placeholder="Votre mail"
-    />
-    <mat-icon matSuffix>email</mat-icon>
-  </mat-form-field>
+    <!-- Input email -->
+    <mat-form-field appearance="fill">
+      <mat-label>e-mail</mat-label>
+      <input matInput formControlName="email" placeholder="Votre mail" />
+      <mat-icon matSuffix>email</mat-icon>
+    </mat-form-field>
 
     <!-- Input password -->
     <mat-form-field appearance="fill">
@@ -68,10 +71,9 @@
     </button>
     <div class="loginBtn">
       <p>déja inscrit ?</p>
-      <a   (click)="clickToLogin()" type="submit" color="primary">
+      <a (click)="clickToLogin()" type="submit" color="primary">
         Se connecter
       </a>
     </div>
-
   </form>
 </section>
