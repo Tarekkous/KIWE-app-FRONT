@@ -32,7 +32,9 @@ import { HistoriqueCommandesComponent } from './components/historique-commandes/
 import { ParametresComponent } from './components/parametres/parametres.component';
 import { ModalPositionComponent } from './modal/position/modal-position/modal-position.component';
 import { EntrepriseComponent } from './components/entreprise/entreprise.component';
-import { DeleteComponent } from './modal/profilUser/delete/delete.component'
+import { DeleteComponent } from './modal/profilUser/delete/delete.component';
+import { LoginAdminComponent } from './components/login-admin/login-admin.component';
+import { AdminComponent } from './components/admin/admin.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +50,9 @@ import { DeleteComponent } from './modal/profilUser/delete/delete.component'
     ParametresComponent,
     ModalPositionComponent,
     EntrepriseComponent,
-    DeleteComponent
+    DeleteComponent,
+    LoginAdminComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,

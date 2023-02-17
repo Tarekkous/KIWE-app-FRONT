@@ -15,12 +15,14 @@ token!:any
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
       const token = this._userService.getToken();
+      const statutClient = this._userService.getStatutClient()
       // this._userService.getMyToken().subscribe((data:any)=>{
       //   console.log(data);
       //   this.token = data
       // });
+      console.log(statutClient);
       console.log(token);
-      if (token) {
+      if (token && statutClient.statut !== 'commerçant') {
         return true;
       } else {
         this._snackbar.open('vous devez être authentifié pour accéder à cette page', 'ok' ,{verticalPosition:'top'})

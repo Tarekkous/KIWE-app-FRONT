@@ -25,7 +25,7 @@ this._dialogRef.close()
 this._route.navigate(['/']);
 
 
-}
+};
 onCancel(){
   this._dialogRef.close()
 }

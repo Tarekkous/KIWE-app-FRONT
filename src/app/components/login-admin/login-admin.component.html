@@ -3,9 +3,9 @@
 
     <div class="login-form">
       <h1>Bienvenue !</h1>
-      <h2>Connectez-vous</h2>
+      <h2>Connectez-vous en tant que Administrateur</h2>
 
-      <form [formGroup]="loginFormUser" (ngSubmit)="onSubmit()">
+      <form [formGroup]="loginAdmin" (ngSubmit)="onSubmit()">
         <!-- Input email -->
         <mat-form-field appearance="fill">
           <mat-label>Adresse e-mail</mat-label>
@@ -35,13 +35,14 @@
           mat-raised-button
           type="submit"
           color="primary"
-          [disabled]="loginFormUser.invalid"
+          [disabled]="loginAdmin.invalid"
         >
           Valider
         </button>
         <!-- Renvoyer vers overview après validation -->
       </form>
-      <p>Vous êtes commerçant ? cliquer <a (click)="goAdmin()">ici</a></p>
+
+      <p>Vous êtes client ? cliquer <a routerLink="/">ici</a></p>
       <div>
       <p>Pas encore de compte?</p>
       <p>Cliquez <a (click)="onRegister()">ici</a> pour vous inscrire</p>
