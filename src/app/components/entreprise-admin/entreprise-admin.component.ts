@@ -25,10 +25,12 @@ export class EntrepriseAdminComponent  {
         this._adminService.getAllClients(id).subscribe((data: any) => {
           console.log('clients getted successfully !',data);
           // on pousse les utilisateurs dans le TABLEAU
-          const firstName = data.user_firstname
-          const lastName = data.user_lastname
-          const position = data.position
-          this.clients.push(data)
+          data.forEach((client: any) => {
+            const firstName = client.user_firstname;
+            const lastName = client.user_lastname;
+            const position = client.position;
+            this.clients.push(client);
+          });
           console.log('all clients:' , this.clients);
         });
       }

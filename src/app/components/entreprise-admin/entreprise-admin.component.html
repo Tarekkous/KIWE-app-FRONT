@@ -1,6 +1,6 @@
 <img class="logo" src="/assets/Logo.png" alt="" />
 
-<section class="container" *ngFor="let client of clients">
+<section class="container" >
   <div *ngIf="societyData" class="titre">
     <h1>{{societyData.nom_entreprise}}</h1>
   </div>
@@ -15,7 +15,7 @@
         <td>position</td>
         <td>remove</td>
       </tr>
-      <tr>
+      <tr *ngFor="let client of clients">
         <td>{{ client.user_firstname }}</td>
         <td>{{ client.user_lastname }}</td>
         <td>{{ client.position }}</td>
