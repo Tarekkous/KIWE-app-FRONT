@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AdminService } from 'src/app/services/admin.service';
 import { EntrepriseService } from 'src/app/services/entreprise.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-entreprise-admin',
@@ -11,7 +12,7 @@ export class EntrepriseAdminComponent  {
 
   clients :any[] = []
   societyData!:any;
-  constructor(private _adminService:AdminService, private _entrepriseService:EntrepriseService){}
+  constructor(private _adminService:AdminService, private _entrepriseService:EntrepriseService, private _userService: UserService){}
 
   ngOnInit(){
     //!récupérer les données de l'entreprise
@@ -35,8 +36,19 @@ export class EntrepriseAdminComponent  {
         });
       }
     });
+    setTimeout(() => {
+      window.location.reload();
+    }, 30000);
   };
-
+  onRemove(mail: string) {
+    const userMail = {user_mail : mail}
+    this._userService.dissociateUser(userMail).subscribe((user: any) => {
+      console.log(user);
+      console.log('ici mail : ', mail);
+      // Mettre à jour la liste des clients ici, en supprimant le client avec le mail donné
+      this.clients = this.clients.filter((client) => client.user_mail !== mail);
+    });
+  }
 
 
 
