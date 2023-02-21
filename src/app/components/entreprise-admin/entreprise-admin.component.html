@@ -1,0 +1,26 @@
+<img class="logo" src="/assets/Logo.png" alt="" />
+
+<section class="container" *ngFor="let client of clients">
+  <div *ngIf="societyData" class="titre">
+    <h1>{{societyData.nom_entreprise}}</h1>
+  </div>
+  <table>
+    <thead>
+        <th>Clients en attente : </th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>first name</td>
+        <td>last name</td>
+        <td>position</td>
+        <td>remove</td>
+      </tr>
+      <tr>
+        <td>{{ client.user_firstname }}</td>
+        <td>{{ client.user_lastname }}</td>
+        <td>{{ client.position }}</td>
+        <td><button mat-button color="warn"><i class="fa fa-times" aria-hidden="true"></i></button></td>
+      </tr>
+    </tbody>
+  </table>
+</section>

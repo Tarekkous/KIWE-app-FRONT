@@ -20,8 +20,6 @@ token!:any
       //   console.log(data);
       //   this.token = data
       // });
-      console.log(statutClient.statut);
-      console.log(token);
       if (token && statutClient.statut !== 'commerçant') {
         return true;
       } else {

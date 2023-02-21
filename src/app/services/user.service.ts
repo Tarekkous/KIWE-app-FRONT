@@ -28,21 +28,11 @@ deleteUser(id:any):Observable<any>{
 postLogin(user:any):Observable<any>{
   return this._http.post(this.loginApi,user)
 }
-// Admin method login ***********
-postLoginAdmin(admin:any):Observable<any>{
-  return this._http.post(`${this.commonApi}loginAdmin`,admin)
-}
+
 postRegister(user:any):Observable<any>{
   return this._http.post(this.userApi,user)
 }
-//récupérer le statut de l'admin
-getStatutAdmin(){
-  const adminStatut = JSON.parse(localStorage.getItem('adminStatut')as any)
-  if(adminStatut){
-    return adminStatut
-  }
-  return null
-}
+
 //récupérer le statut du client
 getStatutClient(){
   const statutClient = JSON.parse(localStorage.getItem('profilCords')as any)

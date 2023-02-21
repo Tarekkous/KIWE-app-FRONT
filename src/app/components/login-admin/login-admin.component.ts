@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/user.model';
+import { AdminService } from 'src/app/services/admin.service';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -16,7 +17,7 @@ export class LoginAdminComponent {
   loginAdmin!: FormGroup;
   constructor(
     private _fb: FormBuilder,
-    private _userService: UserService,
+    private _adminService: AdminService,
     private _router: Router,
     private _snackBar: MatSnackBar
 
@@ -38,14 +39,17 @@ export class LoginAdminComponent {
       const password = this.loginAdmin.value.password;
       console.log(email , password);
       var dataLogin = { user_mail: email, user_mdp: password };
-      this._userService.postLoginAdmin(dataLogin).subscribe((response: any) => {
-        console.log(response.loginAdmin);
+      this._adminService.postLoginAdmin(dataLogin).subscribe((response: any) => {
+        console.log('ici reponse : ',response.loginAdmin);
+
         this.token = response.accessToken
         localStorage.setItem('Token',this.token)
         console.log(response.loginAdmin.statut);
         localStorage.setItem('adminStatut',JSON.stringify(response.loginAdmin.statut))
+        localStorage.setItem('adminCords',JSON.stringify(response.loginAdmin))
+
       });
-      this._router.navigate(['admin']);
+      this._router.navigate(['admin/entrepriseAdmin']);
     } catch (err) {
       this._snackBar.open('wrong mail adress!','Retry',{verticalPosition:'top'});
     }

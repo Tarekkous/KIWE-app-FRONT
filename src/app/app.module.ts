@@ -36,6 +36,9 @@ import { DeleteComponent } from './modal/profilUser/delete/delete.component';
 import { LoginAdminComponent } from './components/login-admin/login-admin.component';
 import { AdminComponent } from './components/admin/admin.component'
 import {MatSelectModule} from '@angular/material/select';
+import { AdminSideBarComponent } from './components/admin-side-bar/admin-side-bar.component';
+import { EntrepriseAdminComponent } from './components/entreprise-admin/entreprise-admin.component';
+import { ParametresAdminComponent } from './components/parametres-admin/parametres-admin.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,7 +56,10 @@ import {MatSelectModule} from '@angular/material/select';
     EntrepriseComponent,
     DeleteComponent,
     LoginAdminComponent,
-    AdminComponent
+    AdminComponent,
+    AdminSideBarComponent,
+    EntrepriseAdminComponent,
+    ParametresAdminComponent
   ],
   imports: [
     BrowserModule,

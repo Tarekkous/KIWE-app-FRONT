@@ -1,0 +1,47 @@
+<!-- <section>
+  <h1>menu</h1>
+</section> -->
+<link
+  rel="stylesheet"
+  href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+  integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc"
+  crossorigin="anonymous"
+/>
+<mat-toolbar>
+  <mat-toolbar-row>
+    <button mat-button (click)="right.toggle()" ><mat-icon>menu</mat-icon>Menu</button>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav #right mode="side" [(opened)]="opened" >
+    <div class="close" (click)="right.toggle()"></div>
+    <div class="contenu" >
+      <i class="fas fa-user-circle"></i>
+      <h2 *ngIf="cords">
+        {{ cords.user_firstname }} <br />
+        {{ cords.user_lastname }}
+      </h2>
+      <div class="home">
+        <i class="fa fa-users"></i>
+        <a  routerLink="entrepriseAdmin" class="oneItem">Liste clients</a>
+      </div>
+      <div class="parametres">
+        <i class="fas fa-cog"></i>
+        <a  routerLink="parametresAdmin" class="oneItem">Paramétres</a>
+      </div>
+      <!-- <div class="historique">
+        <i class="fas fa-list"></i>
+        <a  routerLink="historique"  class="oneItem">Historique commandes</a>
+      </div> -->
+      <div class="disconnect">
+        <a (click)="onDisonnect()" class="oneItem">Se déconnecter
+        <i class="fas fa-sign-out-alt"></i>
+        </a>
+      </div>
+
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content >
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

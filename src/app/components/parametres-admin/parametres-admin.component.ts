@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -8,14 +8,14 @@ import { User } from 'src/app/models/user.model';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
-  selector: 'app-parametres',
-  templateUrl: './parametres.component.html',
-  styleUrls: ['./parametres.component.scss'],
+  selector: 'app-parametres-admin',
+  templateUrl: './parametres-admin.component.html',
+  styleUrls: ['./parametres-admin.component.scss']
 })
-export class ParametresComponent implements OnInit {
+export class ParametresAdminComponent {
   user = new User();
   idUser!:number;
-  userCords!:any;
+  adminCords!:any;
   userGetted:any
   userProfil!: FormGroup;
 
@@ -26,16 +26,16 @@ export class ParametresComponent implements OnInit {
       firstName: this.user.user_firstname,
       lastName: this.user.user_lastname,
       email: [this.user.user_mail, Validators.required],
-      password: [this.user.user_mdp, Validators.required,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$')],
+      password: [this.user.user_mdp, Validators.required],
     });
     //récupérer l'ID de l'utilisateur connecté
-    this.userCords = JSON.parse(localStorage.getItem('profilCords') as any);
+    this.adminCords = JSON.parse(localStorage.getItem('adminCords') as any);
 
        //get one user
-       this._userService.getOneUser(this.userCords.id_user)
+       this._userService.getOneUser(this.adminCords.id_user)
        .subscribe((user: any) => {
          console.log('ici user', user[0]);
-         this.idUser = this.userCords.id_user
+         this.idUser = this.adminCords.id_user
          this.userGetted = user[0]
 
        });
@@ -48,7 +48,7 @@ export class ParametresComponent implements OnInit {
       user_mail: this.userProfil.value.email,
       user_mdp: this.userProfil.value.password,
     };
-    this._userService.updateUser(this.userCords.id_user,userCordsProfil).subscribe((response:any)=>{
+    this._userService.updateUser(this.adminCords.id_user,userCordsProfil).subscribe((response:any)=>{
       console.log(response);
     });
     this._snackBar.open('Profil updated','ok', {verticalPosition:'top'})
@@ -67,4 +67,4 @@ export class ParametresComponent implements OnInit {
     this._route.navigate(['overview/home']);
 
   }
-};
+}

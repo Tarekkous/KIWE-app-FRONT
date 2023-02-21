@@ -17,7 +17,7 @@ export class ModalPositionComponent implements OnInit {
 ngOnInit():void{
   console.log(this.dataPos);
   this.positionUser = this.dataPos.position
-  console.log('eeeee',this.positionUser);
+  console.log('voici la position de user',this.positionUser);
    //!on ajoute un client + 2 min de temps d'attente
    const userMail = { user_mail: this.dataPos.user_mail };
    if (!this.isRequestSent) {

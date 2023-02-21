@@ -11,6 +11,7 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./entreprise.component.scss']
 })
 export class EntrepriseComponent implements OnInit {
+  isPageRefreshed = false;
   cords!: any;
   userCords!: any;
   societyData!: any;
@@ -25,17 +26,18 @@ export class EntrepriseComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    // window.location.href= '/overview/entreprise'
     //!récupérer les données de l'entreprise
     this._entrepriseService.getOneEntreprise(2).subscribe((data: any) => {
       this.societyData = data[0];
       console.log(this.societyData.nom_entreprise);
       //! on associe l'utilisateur connecté à l'entreprise visité
-      this._userService
-        .associateUser(
+    this.userCords = JSON.parse(localStorage.getItem('profilCords') as any);
+
+      this._userService.associateUser(
           this.societyData.nom_entreprise,
           this.userCords.user_mail
-        )
-        .subscribe((data: any) => {
+        ).subscribe((data: any) => {
           console.log(data);
         });
     });
@@ -47,14 +49,14 @@ export class EntrepriseComponent implements OnInit {
     console.log(this.isRequestSent);
 
     //get one user
-    this._userService
-      .getOneUser(this.userCords.id_user)
+    this._userService.getOneUser(this.userCords.id_user)
       .subscribe((user: any) => {
         console.log('ici user', user[0]);
         this.cords = user[0];
       console.log('pos de base',this.cords.position);
 
       });
+
   };
 
   //Methode on WAIT  :
@@ -95,4 +97,4 @@ export class EntrepriseComponent implements OnInit {
     this._route.navigate(['overview/home']);
   }
 
-}
+};
