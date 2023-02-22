@@ -55,6 +55,6 @@ export class LoginComponent {
 
   }
   goAdmin(){
-    this._router.navigate(['logAdmin'])
+    this._router.navigate(['logAdmin']);
   }
 }
