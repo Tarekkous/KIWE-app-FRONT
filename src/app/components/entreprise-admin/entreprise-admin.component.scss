@@ -46,3 +46,9 @@ table tr:hover {
   font-weight: bold;
 }
 
+tbody > tr:nth-child(1) {
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+

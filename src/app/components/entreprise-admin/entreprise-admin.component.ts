@@ -23,15 +23,16 @@ export class EntrepriseAdminComponent  {
       //!récupérer tout les utilisateurs qui appartiennent à cette entreprise
       if (this.societyData && this.societyData.id_entreprise) {
         const id = this.societyData.id_entreprise;
+
         this._adminService.getAllClients(id).subscribe((data: any) => {
           console.log('clients getted successfully !',data);
-          // on pousse les utilisateurs dans le TABLEAU
-          data.forEach((client: any) => {
-            const firstName = client.user_firstname;
-            const lastName = client.user_lastname;
-            const position = client.position;
-            this.clients.push(client);
-          });
+            data.forEach((client: any) => {
+              const firstName = client.user_firstname;
+              const lastName = client.user_lastname;
+              const position = client.position;
+              this.clients.push(client);
+            });
+
           console.log('all clients:' , this.clients);
         });
       }
@@ -40,15 +41,26 @@ export class EntrepriseAdminComponent  {
       window.location.reload();
     }, 30000);
   };
+
+  //!on dissocie le client de l'entreprise(dissocier de l'entreprise)
   onRemove(mail: string) {
     const userMail = {user_mail : mail}
     this._userService.dissociateUser(userMail).subscribe((user: any) => {
       console.log(user);
-      console.log('ici mail : ', mail);
+        // on enleve -2min du temps d'attente
+        const id = {id:this.societyData.id_entreprise}
+        this._adminService.reduceTimeCompany(id).subscribe((data:any)=>{
+          console.log(data);
+        });
+        this._adminService.removePosition(userMail).subscribe((removePos:any)=>{
+          console.log(removePos);
+        })
+
       // Mettre à jour la liste des clients ici, en supprimant le client avec le mail donné
       this.clients = this.clients.filter((client) => client.user_mail !== mail);
+
     });
-  }
+  };
 
 
 

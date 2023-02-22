@@ -29,4 +29,15 @@ getStatutAdmin(){
   }
   return null
 }
+
+// enlever -2min de temps d'attente de l'entreprise après avoir dissocier l'utilisateur
+reduceTimeCompany(id:any):Observable<any>{
+  return this._http.put(`${this.commonApi}company/${id}`,id)
+  }
+// enlever la position de l'utilisateur retiré par l'admin
+removePosition(mail:any):Observable<any>{
+  return this._http.put(`${this.commonApi}posClient`,mail)
+}
+
 };
+
