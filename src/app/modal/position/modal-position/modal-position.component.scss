@@ -1,6 +1,6 @@
 .container {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   flex-direction: column;
   margin: 10% 0 0 0;
@@ -13,10 +13,18 @@
     color: #FD746C;
     font-size: 50px;
   }
-  button {
-    position: absolute;
-    bottom: 20px;
-    left: 40%;
+  #position {
+    margin-bottom: 15%;
+  }
+  // button {
+  //   position: absolute;
+  //   bottom: 20px;
+  //   left: 40%;
+  // }
+  .buttons {
+    display: flex;
+    align-items: flex-end;
+
   }
 }
 p {

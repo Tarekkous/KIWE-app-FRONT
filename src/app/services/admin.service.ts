@@ -6,11 +6,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AdminService {
-
 commonApi:string= 'http://localhost:3000/'
 
+  constructor(private _http: HttpClient) {
 
-  constructor(private _http: HttpClient) { }
+  }
 
 
 // méthode pour récupérer et afficher tout les clients de l'entreprise

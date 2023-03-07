@@ -4,7 +4,6 @@
   align-items: center;
   filter: drop-shadow(8px 8px 8px #333);
   margin: 10%;
-
 }
 .logo {
   position: absolute;
@@ -15,44 +14,57 @@
   margin: 10px;
 }
 .goHome {
- display: flex;
- justify-content: center;
- align-items: center;
- flex-direction: column;
-      img{
-        width: 100px;
-        height: 100px;
-      }
-      button {
-        border: none;
-        background-color: transparent;
-      }
-      &:hover {
-        cursor: pointer;
-      }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  img {
+    width: 100px;
+    height: 100px;
+  }
+  button {
+    border: none;
+    background-color: transparent;
+  }
+  &:hover {
+    cursor: pointer;
+  }
 }
-.container{
+.container {
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 0;
-.alternative{
-  button {
-    background-color: #fff;
-    border: 1px solid #0956A3;
-    border-radius: 5px;
-    cursor: pointer;
-    padding: 5px
-
-
-  };
+  .alternative {
+    button {
+      background-color: #fff;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      border: none;
+      cursor: pointer;
+      padding: 5px;
+      filter: drop-shadow(5px 5px 5px #333);
+      font-size: 14px;
+      &:hover {
+        background-color: #000;
+        color: white;
+      }
+    }
+  }
+  h1 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #12569f;
+  }
 }
+
+
+.aClass {
 }
 
-
-.aClass {}
-
-@media screen and (width :400px ) {
+@media screen and (width: 400px) {
   h1 {
     font-size: 30px;
-  }}
+  }
+}

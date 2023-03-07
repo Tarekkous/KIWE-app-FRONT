@@ -2,14 +2,12 @@ import { Component } from '@angular/core';
 import { AdminService } from 'src/app/services/admin.service';
 import { EntrepriseService } from 'src/app/services/entreprise.service';
 import { UserService } from 'src/app/services/user.service';
-
 @Component({
   selector: 'app-entreprise-admin',
   templateUrl: './entreprise-admin.component.html',
   styleUrls: ['./entreprise-admin.component.scss']
 })
 export class EntrepriseAdminComponent  {
-
   clients :any[] = []
   societyData!:any;
   constructor(private _adminService:AdminService, private _entrepriseService:EntrepriseService, private _userService: UserService){}
@@ -26,20 +24,23 @@ export class EntrepriseAdminComponent  {
 
         this._adminService.getAllClients(id).subscribe((data: any) => {
           console.log('clients getted successfully !',data);
+            // fonction de comparaison en fonction de la position
+           function compareClientIds(clientA: any, clientB: any) {
+         return clientA.position - clientB.position;
+        }
             data.forEach((client: any) => {
-              const firstName = client.user_firstname;
-              const lastName = client.user_lastname;
-              const position = client.position;
               this.clients.push(client);
             });
 
+         // Trier le tableau une fois après avoir ajouté tous les éléments
+          this.clients.sort(compareClientIds);
           console.log('all clients:' , this.clients);
         });
       }
     });
     setTimeout(() => {
       window.location.reload();
-    }, 30000);
+    }, 50000);
   };
 
   //!on dissocie le client de l'entreprise(dissocier de l'entreprise)

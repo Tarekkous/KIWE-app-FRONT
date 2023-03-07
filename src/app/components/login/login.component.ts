@@ -32,18 +32,17 @@ export class LoginComponent {
     // });
 
   }
-  onSubmit(): void {
+  async onSubmit(): Promise<void> {
     try {
       const email = this.loginFormUser.value.email;
       const password = this.loginFormUser.value.password;
       console.log(email , password);
-      var dataLogin = { user_mail: email, user_mdp: password };
-      this._userService.postLogin(dataLogin).subscribe((response: any) => {
-        console.log(response.loginUser);
-        this.token = response.accessToken
-        localStorage.setItem('Token',this.token)
-        localStorage.setItem('profilCords',JSON.stringify(response.loginUser))
-      });
+      const dataLogin = { user_mail: email, user_mdp: password };
+      const response = await this._userService.postLogin(dataLogin).toPromise();
+      console.log(response.loginUser);
+      this.token = response.accessToken;
+      localStorage.setItem('Token', this.token);
+      localStorage.setItem('profilCords', JSON.stringify(response.loginUser));
       this._router.navigate(['overview/home']);
     } catch (err) {
       this._snackBar.open('wrong mail adress!','Retry',{verticalPosition:'top'});
@@ -57,4 +56,5 @@ export class LoginComponent {
   goAdmin(){
     this._router.navigate(['logAdmin']);
   }
-}
+};
+

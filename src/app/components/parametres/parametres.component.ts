@@ -26,7 +26,7 @@ export class ParametresComponent implements OnInit {
       firstName: this.user.user_firstname,
       lastName: this.user.user_lastname,
       email: [this.user.user_mail, Validators.required],
-      password: [this.user.user_mdp, Validators.required,Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$')],
+      password: [this.user.user_mdp, Validators.required],
     });
     //récupérer l'ID de l'utilisateur connecté
     this.userCords = JSON.parse(localStorage.getItem('profilCords') as any);

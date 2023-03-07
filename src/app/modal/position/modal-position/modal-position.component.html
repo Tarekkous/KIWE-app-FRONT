@@ -1,8 +1,12 @@
 <section class="container" *ngIf="positionUser">
-  <h1>Bienvenue</h1>
-  <p>votre position dans la file d'attente est : </p>
-  <p class="position">{{positionUser}}</p>
-  <div>
-    <button (click)="onExitModal()" mat-button color="primary">OK</button>
+  <div id="position">
+    <h1>Bienvenue</h1>
+    <p>votre position dans la file d'attente est :</p>
+    <p class="position">{{ positionUser }}</p>
   </div>
+  <div class="buttons">
+    <button (click)="onExitModal()" mat-button color="primary">OK</button>
+    <button (click)="download()" mat-button color="accent">Download PDF</button>
+  </div>
+
 </section>
