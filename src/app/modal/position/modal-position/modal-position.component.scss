@@ -26,7 +26,13 @@
     align-items: flex-end;
 
   }
+  @media print {
+    .buttons {
+        display: none;
+    }
+  }
 }
 p {
   margin-top: 5px;
 }
+

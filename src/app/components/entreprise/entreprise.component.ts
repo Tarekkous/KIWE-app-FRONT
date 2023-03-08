@@ -11,13 +11,10 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./entreprise.component.scss']
 })
 export class EntrepriseComponent implements OnInit {
-  isPageRefreshed = false;
   cords!: any;
   userCords!: any;
   societyData!: any;
   positionUser!:any
-  private isRequestSent = false;
-
   constructor(
     private _entrepriseService: EntrepriseService,
     private _userService: UserService,
@@ -46,7 +43,6 @@ export class EntrepriseComponent implements OnInit {
     const userFirstName = this.userCords.user_firstname;
     const userLastName = this.userCords.user_lastname;
     console.log('coordonnées utilisateur :', this.userCords);
-    console.log(this.isRequestSent);
 
     //get one user
     this._userService.getOneUser(this.userCords.id_user)
@@ -56,6 +52,7 @@ export class EntrepriseComponent implements OnInit {
       console.log('pos de base',this.cords.position);
 
       });
+
 
   };
 

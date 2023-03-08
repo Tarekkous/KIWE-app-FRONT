@@ -58,7 +58,6 @@ mat-sidenav {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
   .fa-user-circle{
     position: absolute;
     top: 2%;
@@ -78,15 +77,15 @@ mat-sidenav {
   .disconnect{
     position: absolute;
     bottom: 20%;
+  cursor: pointer;
+
   }
   .parametres,.historique,.home{
     display: flex;
     justify-content: left;
     align-items: flex-end;
     margin: 15px;
-    &:hover {
-      color: #0956A3;
-     }
+
       a {
         margin-left: 5px;
         text-decoration: none;
