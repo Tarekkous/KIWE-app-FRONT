@@ -30,10 +30,8 @@ tkn!:any
 
 //!on récupére le profilCords via un subject
 this._userService.getProfilCords().subscribe((profilCords:any)=>{
-  console.log(profilCords);
 })
 this._userService.getMyToken().subscribe((data:any)=>{
-  console.log(data);
   this.tkn = data
 });
   };

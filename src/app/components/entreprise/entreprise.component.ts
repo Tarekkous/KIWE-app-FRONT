@@ -27,29 +27,23 @@ export class EntrepriseComponent implements OnInit {
     //!récupérer les données de l'entreprise
     this._entrepriseService.getOneEntreprise(2).subscribe((data: any) => {
       this.societyData = data[0];
-      console.log(this.societyData.nom_entreprise);
       //! on associe l'utilisateur connecté à l'entreprise visité
     this.userCords = JSON.parse(localStorage.getItem('profilCords') as any);
 
       this._userService.associateUser(
           this.societyData.nom_entreprise,
           this.userCords.user_mail
-        ).subscribe((data: any) => {
-          console.log(data);
-        });
+        ).subscribe()
     });
 
     this.userCords = JSON.parse(localStorage.getItem('profilCords') as any);
     const userFirstName = this.userCords.user_firstname;
     const userLastName = this.userCords.user_lastname;
-    console.log('coordonnées utilisateur :', this.userCords);
 
     //get one user
     this._userService.getOneUser(this.userCords.id_user)
       .subscribe((user: any) => {
-        console.log('ici user', user[0]);
         this.cords = user[0];
-      console.log('pos de base',this.cords.position);
 
       });
 
@@ -59,7 +53,6 @@ export class EntrepriseComponent implements OnInit {
   //Methode on WAIT  :
   onValidate(cords:any):void {
 
-      //! on informe l'utilisateur de sa position
       let modal = this._dialog.open(ModalPositionComponent, {
         width: '300px',
         height: '300px',
@@ -67,10 +60,7 @@ export class EntrepriseComponent implements OnInit {
         exitAnimationDuration: '500ms',
         data: cords
       });
-      //rafraichir la page afin de visualiser les nouvelles données*****
-      // window.location.href = '/overview/historique';
       modal.afterClosed().subscribe((data:any)=>{
-        console.log('ici data : ' ,data);
         this.positionUser = data
       });
     };

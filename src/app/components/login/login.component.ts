@@ -49,6 +49,7 @@ export class LoginComponent {
     }
 
   }
+  //register
   onRegister() {
     this._router.navigate(['register']);
 

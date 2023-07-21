@@ -21,19 +21,16 @@ ngOnInit():void{
 //!on récupére le profilCords via localStorage
 
 this.profilCords = JSON.parse(localStorage.getItem('profilCords') as any)
-console.log(this.profilCords);
 // const userFirstName = this.profilCords.user_firstname
 // const userLastName = this.profilCords.user_lastname
 
 //  //!on récupére le profilCords avec la methode GET one user
 // ((!! afficher les données en haut du menu !! ))
  this._userService.getOneUser(this.profilCords.id_user).subscribe((user:any)=>{
-  console.log('ici user',user);
   this.cords = user[0]
 })
 //!on récupére le token via un subject
 this._userService.getMyToken().subscribe((data:any)=>{
-  console.log(data);
   this.tkn = data
 });
 }

@@ -37,24 +37,15 @@ onSubmit(): void {
   try {
     const email = this.loginAdmin.value.email;
     const password = this.loginAdmin.value.password;
-    console.log(email , password);
     var dataLogin = { user_mail: email, user_mdp: password };
     this._adminService.postLoginAdmin(dataLogin).subscribe((response: any) => {
       if (response.loginAdmin === undefined) {
         this._snackBar.open('vous devez être Admin pour accéder à cette page','ok',{verticalPosition:'top'});
-
       }
-      console.log('ici reponse : ',response.loginAdmin);
-
       this.token = response.accessToken
       localStorage.setItem('Token',this.token)
-      console.log(response.loginAdmin.statut);
       localStorage.setItem('adminStatut',JSON.stringify(response.loginAdmin.statut))
-      localStorage.setItem('adminCords',JSON.stringify(response.loginAdmin))
-
-      // naviguer vers la page de destination ici
     this._router.navigate(['admin/entrepriseAdmin']);
-
     }, error => {
       this._snackBar.open('vous devez être Admin pour accéder à cette page','ok',{verticalPosition:'top'});
     });

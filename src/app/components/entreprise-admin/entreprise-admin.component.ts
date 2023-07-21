@@ -16,25 +16,19 @@ export class EntrepriseAdminComponent  {
     //!récupérer les données de l'entreprise
     this._entrepriseService.getOneEntreprise(2).subscribe((data: any) => {
       this.societyData = data[0];
-      console.log('company data : ' ,this.societyData);
 
       //!récupérer tout les utilisateurs qui appartiennent à cette entreprise
       if (this.societyData && this.societyData.id_entreprise) {
         const id = this.societyData.id_entreprise;
 
         this._adminService.getAllClients(id).subscribe((data: any) => {
-          console.log('clients getted successfully !',data);
-            // fonction de comparaison en fonction de la position
            function compareClientIds(clientA: any, clientB: any) {
          return clientA.position - clientB.position;
         }
             data.forEach((client: any) => {
               this.clients.push(client);
             });
-
-         // Trier le tableau une fois après avoir ajouté tous les éléments
           this.clients.sort(compareClientIds);
-          console.log('all clients:' , this.clients);
         });
       }
     });
@@ -48,7 +42,6 @@ export class EntrepriseAdminComponent  {
     const userMail = {user_mail : mail}
     this._userService.dissociateUser(userMail).subscribe((user: any) => {
       console.log(user);
-        // on enleve -2min du temps d'attente
         const id = {id:this.societyData.id_entreprise}
         this._adminService.reduceTimeCompany(id).subscribe((data:any)=>{
           console.log(data);
@@ -57,7 +50,6 @@ export class EntrepriseAdminComponent  {
           console.log(removePos);
         })
 
-      // Mettre à jour la liste des clients ici, en supprimant le client avec le mail donné
       this.clients = this.clients.filter((client) => client.user_mail !== mail);
 
     });

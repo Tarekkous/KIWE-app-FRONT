@@ -70,14 +70,13 @@ getProfilCords():Observable<any>{
 associateUser(nom_entreprise:any,user_mail:any):Observable<any>{
   return this._http.put(this.userApi,{ nom_entreprise, user_mail })
 };
-
 //!on ajoute une position au user
 addPos(userMail:any):Observable<any>{
   return this._http.put(`${this.commonApi}addPos`, userMail)
 };
-
 // !on dissocie l'utilisateur de l'entreprise
 dissociateUser(userMail:any):Observable<any>{
   return this._http.put(`${this.commonApi}userDissociate`, userMail)
 }
 };
+
